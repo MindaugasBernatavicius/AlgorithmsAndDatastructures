@@ -1,4 +1,4 @@
-public class MyClass {
+public class MergeSort {
     public static void main(String args[]) {
         int[] testArr = {3, 2, 1, 7, -99, 22, -68};
         mergeSort(testArr);
