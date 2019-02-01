@@ -1,17 +1,27 @@
 public class BubbleSortPrimitive {
     public static void main(String args[]) {
-        int[] arr = {91, 1, 6};
+        // declare and allocate
+        int[] arr = new int[100];
+        
+        // fill array
+        fillArray(arr);
         
         // before sorting
         for(int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
             
+        // sort
         bubbleSort(arr);
         
         // after sorting
         for(int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + " ");
+    }
+    
+    public static void fillArray(int[] arr){
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (int)(Math.random() * 50 + 1);
     }
     
     public static void bubbleSort(int arr[]){
