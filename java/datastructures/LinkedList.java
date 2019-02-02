@@ -4,8 +4,15 @@ public class LinkedList {
         sll.addFirst('a');
         sll.addFirst('b');
         sll.addFirst('c');
-        for(int i = 0; i < 3; i++)
-            System.out.println(sll.get(i));
+        
+        sll.print();
+        
+        while(!sll.isEmtpy()){
+            System.out.println(sll.get(0));
+            sll.delete(0);   
+        }
+        
+        sll.print();
     }
 }
 
@@ -63,19 +70,18 @@ class LinkedListImpl {
             return deleteFirst();
             
         Node current = head;
-        for(int i = 0; i != idx; i++){
+        for(int i = 0; i != idx - 1; i++){
             if(current.getNext() != null)
                 current = current.getNext();
             else
                 throw new ArrayIndexOutOfBoundsException(idx);
         }
-        return current.getData();
         
+        current.setNext(current.getNext().getNext());
+        return current;
     }
     
-    // public Node deleteAt(){
-        
-    // }
+    // public Node deleteLast(){}
     
     // Getting values
     public char getFirst(){
@@ -104,12 +110,23 @@ class LinkedListImpl {
             last = last.getNext();
         return last.getData();
     }
+    
+    public void print(){
+        if(!isEmtpy()){
+            Node current = head;
+            while(current != null){
+                System.out.println(current.getData());
+                current = current.getNext();
+            }
+        } else {
+            getFirst();
+        }
+    }
 }
 
 class Node {
-    // data could be of type Person, InventoryItem
+    // could be: Person, InventoryItem
     private char data;
-    // null on creation
     private Node next;
     
     public Node(char data){
@@ -131,5 +148,4 @@ class Node {
     public void setNext(Node next){
         this.next = next;
     }
-    
 }
