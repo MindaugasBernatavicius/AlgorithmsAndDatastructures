@@ -1,33 +1,35 @@
 public class LinkedList {
     public static void main(String args[]) {
         LinkedListImpl sll = new LinkedListImpl();
-        System.out.println(sll.isEmtpy());
+        sll.addFirst('a');
+        sll.addFirst('b');
         sll.addFirst('c');
-        System.out.println(sll.isEmtpy());
-        System.out.println(sll.getLast());
-        sll.addFirst('d');
-        System.out.println(sll.getFirst());
+        for(int i = 0; i < 3; i++)
+            System.out.println(sll.get(i));
     }
 }
 
 class LinkedListImpl {
     
-    private Node first;
+    private Node head;
     
     public LinkedListImpl(){
-        // explicitly set to null (for clarity)
-        first = null;
+        head = null;
     }
     
     public boolean isEmtpy(){
-        return (first == null);
+        return (head == null);
     }
     
     // Adding values
     public void addFirst(char data){
         Node node = new Node(data);
-        node.setNext(first); // old first
-        first = node;
+        // old head will be moved
+        node.setNext(head);
+        // and the new node becomes
+        // the head like we expect when
+        // adding the first element
+        head = node;
     }
     
     public void add(char data){
@@ -35,7 +37,7 @@ class LinkedListImpl {
         if(isEmtpy())
             addFirst(data);
         else {
-            Node current = first;
+            Node current = head;
             // travel to the last node
             while(current.getNext() != null)
                 current = current.getNext();
@@ -43,23 +45,33 @@ class LinkedListImpl {
         }
     }
     
-    // public void addAt(char data, int idx){
-        
-    // }
+    // public void add(char data, int idx){}
     
     // Removing values
     public Node deleteFirst(){
-        // verify that the list if not empty
-        Node tmp = first;
-        // disconnect the link (GC will destroy it latter)
-        first.setNext(first);
-         // retur deleted node (this step is optional)
+        Node tmp = head;
+        if(!isEmtpy())
+            head = head.getNext();
         return tmp;
+        // now we can call delete
+        // as many times as we want
+        // we could also throw an error
     }
     
-    // public Node detele(){
+    public Node delete(int idx){
+        if(idx == 0)
+            return deleteFirst();
+            
+        Node current = head;
+        for(int i = 0; i != idx; i++){
+            if(current.getNext() != null)
+                current = current.getNext();
+            else
+                throw new ArrayIndexOutOfBoundsException(idx);
+        }
+        return current.getData();
         
-    // }
+    }
     
     // public Node deleteAt(){
         
@@ -69,16 +81,29 @@ class LinkedListImpl {
     public char getFirst(){
         // we could raise an exception, or return null char
         // when the getFirst() is called on an empty LL
-        return first == null ? '\0' : first.getData();
+        return head == null ? '\0' : head.getData();
     }
     
-    public char getLast(){
-        Node current = first;
-        while(current.getNext() != null)
-            current = current.getNext();
+    public char get(int idx){
+        if(idx == 0)
+            return getFirst();
+        
+        Node current = head;
+        for(int i = 0; i != idx; i++){
+            if(current.getNext() != null)
+                current = current.getNext();
+            else
+                throw new ArrayIndexOutOfBoundsException(idx);
+        }
         return current.getData();
     }
     
+    public char getLast(){
+        Node last = head;
+        while(last.getNext() != null)
+            last = last.getNext();
+        return last.getData();
+    }
 }
 
 class Node {
