@@ -2,6 +2,7 @@ public class LinkedList {
     public static void main(String args[]) {
         LinkedListImpl sll = new LinkedListImpl();
         sll.addFirst('a');
+        sll.addFirst('b');
         while(!sll.isEmtpy()){
             System.out.println(sll.get(0));
             sll.delete(0);   
@@ -17,12 +18,11 @@ public class LinkedList {
         sll.print();
         
         while(!sll.isEmtpy()){
-            System.out.println(sll.get(0));
             sll.delete(0);   
         }
         
-        // print when empty
         sll.print();
+        sll.delete(1);
     }
 }
 
@@ -76,18 +76,28 @@ class LinkedListImpl {
     }
     
     public Node delete(int idx){
+        if(idx < 0)
+            throw new IllegalArgumentException();
         if(idx == 0)
             return deleteFirst();
-            
-        Node current = head;
-        for(int i = 0; i != idx - 1; i++){
-            if(current.getNext() != null)
-                current = current.getNext();
-            else
+        if(idx > 0 && isEmtpy())
+            throw new ArrayIndexOutOfBoundsException(idx);
+        
+        Node previous = head;
+        Node deleted = null;
+        int counter = 0;
+        while(previous.getNext() != null){
+            if(counter == idx - 1){
+                deleted = previous.getNext();
+                previous.setNext(previous.getNext().getNext());
+            } else if(counter > idx){
                 throw new ArrayIndexOutOfBoundsException(idx);
+            } else {
+                previous = previous.getNext();
+                counter++;
+            }
         }
-        current.setNext(current.getNext().getNext());
-        return current;
+        return deleted;
     }
     
     // public Node deleteLast(){}
@@ -123,10 +133,12 @@ class LinkedListImpl {
     public void print(){
         if(!isEmtpy()){
             Node current = head;
+            System.out.print("{ ");
             while(current != null){
-                System.out.println(current.getData());
+                System.out.print(current.getData() + " ");
                 current = current.getNext();
             }
+            System.out.println("}");
         } else {
             getFirst();
         }
