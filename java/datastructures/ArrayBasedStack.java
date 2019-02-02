@@ -1,4 +1,4 @@
-public class Stack {
+public class ArrayBasedStack {
     public static void main(String args[]) {
         CharStack s = new CharStack(2);
         System.out.println(s.empty());
@@ -17,7 +17,7 @@ class CharStack {
     private int topIdx;
     private char[] stack;
     
-    Stack(int maxSize){
+    CharStack(int maxSize){
         topIdx = 0;
         stack = new char[maxSize];
     }
