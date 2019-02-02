@@ -2,7 +2,16 @@ public class LinkedList {
     public static void main(String args[]) {
         LinkedListImpl sll = new LinkedListImpl();
         sll.addFirst('a');
-        sll.addFirst('b');
+        while(!sll.isEmtpy()){
+            System.out.println(sll.get(0));
+            sll.delete(0);   
+        }
+        
+        sll.add('a');
+        while(!sll.isEmtpy()){
+            System.out.println(sll.get(0));
+            sll.delete(0);   
+        }
         sll.addFirst('c');
         
         sll.print();
@@ -12,6 +21,7 @@ public class LinkedList {
             sll.delete(0);   
         }
         
+        // print when empty
         sll.print();
     }
 }
@@ -76,7 +86,6 @@ class LinkedListImpl {
             else
                 throw new ArrayIndexOutOfBoundsException(idx);
         }
-        
         current.setNext(current.getNext().getNext());
         return current;
     }
@@ -147,5 +156,5 @@ class Node {
     
     public void setNext(Node next){
         this.next = next;
-    }
+    }   
 }
