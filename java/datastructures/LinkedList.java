@@ -66,35 +66,37 @@ class LinkedListImpl {
     
     // Removing values
     public Node deleteFirst(){
-        Node tmp = head;
-        if(!isEmtpy())
-            head = head.getNext();
-        return tmp;
-        // now we can call delete
-        // as many times as we want
-        // we could also throw an error
+        return delete(0);
     }
     
     public Node delete(int idx){
-        if(idx < 0)
-            throw new IllegalArgumentException();
-        if(idx == 0)
-            return deleteFirst();
-        if(idx > 0 && isEmtpy())
-            throw new ArrayIndexOutOfBoundsException(idx);
-        
         Node previous = head;
         Node deleted = null;
-        int counter = 0;
-        while(previous.getNext() != null){
-            if(counter == idx - 1){
-                deleted = previous.getNext();
-                previous.setNext(previous.getNext().getNext());
-            } else if(counter > idx){
-                throw new ArrayIndexOutOfBoundsException(idx);
+        if(idx < 0)
+            throw new IllegalArgumentException();
+        else if ((idx == 1 || idx == 0) && isEmtpy())
+            throw new ArrayIndexOutOfBoundsException(idx);
+        else if ((idx == 0) && !isEmtpy()){
+            Node currentHead = head;
+            if(head.getNext() != null){
+                head = currentHead.getNext();
+                return currentHead;
             } else {
-                previous = previous.getNext();
-                counter++;
+                head = null;
+                return currentHead;
+            }
+        } else {
+            int counter = 0;
+            while(previous.getNext() != null){
+                if(counter == idx - 1){
+                    deleted = previous.getNext();
+                    previous.setNext(previous.getNext().getNext());
+                } else if(counter > idx){
+                    throw new ArrayIndexOutOfBoundsException(idx);
+                } else {
+                    previous = previous.getNext();
+                    counter++;
+                }
             }
         }
         return deleted;
@@ -168,5 +170,6 @@ class Node {
     
     public void setNext(Node next){
         this.next = next;
-    }   
+    }
+    
 }
