@@ -15,9 +15,13 @@ public class BinarySearchTree {
         tree.insert(70); 
         tree.insert(60); 
         tree.insert(80); 
+
+        // 20 40 30 60 80 70 50
   
         // print inorder traversal of the BST 
-        tree.inOrder(); 
+        // tree.inOrder(); 
+        
+        tree.postOrder(); 
     }
 }
   
@@ -53,7 +57,15 @@ class BinarySearchTreeImpl {
     // This method mainly calls InorderRec() 
     void inOrder()  { 
        inOrderRec(root); 
-    } 
+    }
+    
+    void postOrder()  { 
+       postOrderRec(root); 
+    }
+    
+    void preOrder()  { 
+       preOrderRec(root); 
+    }
   
     // A utility function to do inorder traversal of BST 
     void inOrderRec(Node root) { 
@@ -64,19 +76,18 @@ class BinarySearchTreeImpl {
         } 
     }
     
-    // NEED FIXING
     void postOrderRec(Node root) { 
-        if (root != null) { 
+        if (root != null) {
             postOrderRec(root.left); 
-            System.out.println(root.key); 
-            postOrderRec(root.right); 
+            postOrderRec(root.right);
+            System.out.print(root.key);
         } 
     }
     
     void preOrderRec(Node root) { 
-        if (root != null) { 
-            preOrderRec(root.left); 
+        if (root != null) {
             System.out.println(root.key); 
+            preOrderRec(root.left); 
             preOrderRec(root.right); 
         } 
     }
