@@ -15,13 +15,11 @@ public class BinarySearchTree {
         tree.insert(70); 
         tree.insert(60); 
         tree.insert(80); 
-
-        // 20 40 30 60 80 70 50
-  
-        // print inorder traversal of the BST 
-        // tree.inOrder(); 
         
-        tree.postOrder(); 
+        // Traversal examples:
+        tree.inOrder(); 
+        tree.postOrder();
+        // 20 40 30 60 80 70 50
     }
 }
   
