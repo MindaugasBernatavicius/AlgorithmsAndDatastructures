@@ -27,7 +27,7 @@ public class BubbleSortPrimitive {
     public static void bubbleSort(int arr[]){
         int n = arr.length;
         for (int i = 0; i < n-1; i++){
-            for (int j = 0; j < n-i-1; j++){
+            for (int j = 0; j < n-i-1; j++){ // 1 optimization used
                 if (arr[j] > arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
@@ -35,5 +35,23 @@ public class BubbleSortPrimitive {
                 }
             }
         }
-    }  
+    }
+    
+    public static void bubbleSortOptimized(int[] a) {
+        int n = a.length;
+        for(int i = 1; i < n; i++) {
+            boolean isSorted = true;
+            for(int j = 0; j < n - i; j++) { // skip the already sorted largest elements
+                if(a[j] > a[j + 1]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                    isSorted = false; // track if we are already sorted
+                }
+            }
+            
+            if(isSorted)
+                return;
+        }
+    }
 }
