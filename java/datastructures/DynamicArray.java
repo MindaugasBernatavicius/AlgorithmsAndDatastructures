@@ -15,8 +15,9 @@ public class DynamicArray {
         dArr.add(1, '1');
         System.out.println(dArr.getAt(3));
         
-        for(int i = 0; i < dArr.length(); i++)
-            System.out.print(dArr.getAt(i));
+        for(int i = 0; i < dArr.getSize(); i++)
+            System.out.print("{" + dArr.get(i) + "} ");
+        System.out.println();
     }
 }
 
