@@ -1,14 +1,18 @@
 public class ArrayBasedStack {
     public static void main(String args[]) {
-        CharStack s = new CharStack(2);
-        System.out.println(s.empty());
-        s.push('a');
-        s.push('b');
-        System.out.println(s.empty());
-        System.out.println(s.size());
-        System.out.println(s.pop());
-        s.push('c');
-        System.out.println(s.pop());
+        String name = "JKL";
+        CharStack nameStack = new CharStack(name.length());
+
+        for(int i = 0; i < name.length(); i++){
+            nameStack.push(name.charAt(i));
+        }
+
+        // Testcase: stack size, should be same as name length
+        System.out.println(nameStack.size() == name.length());
+
+        for(int i = 0; i < nameStack.size(); i++){
+            System.out.println(nameStack.pop());
+        }
     }
 }
 
