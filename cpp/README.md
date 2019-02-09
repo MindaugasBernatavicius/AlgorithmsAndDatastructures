@@ -1,6 +1,6 @@
-Tasks:
+# Tasks:
 
-Vienakryptis tiesinis sąrašas.
+## Vienakryptis tiesinis sąrašas.
 Parašykite programą, kuri atlieka šias funkcijas:
 -Sukuria vienakryptį tiesinį sąrašą.
 -Atspausdina vienakryptį tiesinį sąrašą.
@@ -10,7 +10,7 @@ Parašykite programą, kuri atlieka šias funkcijas:
 - Ištrina pasirinktą tiesinio sąrašo elementą
 Funkcijų iškvietimui sukurkite pasirinkimų meniu.
 
-Dvikryptis tiesinis sąrašas.
+## Dvikryptis tiesinis sąrašas.
 Parašykite programą, kuri atlieka šias funkcijas:
 -Sukuria dvikryptį tiesinį sąrašą.
 -Atspausdina dvikryptį tiesinį sąrašą nuo pradžios.
@@ -23,7 +23,7 @@ Parašykite programą, kuri atlieka šias funkcijas:
 -Atlieka elemento paiešką sąraše.
 Funkcijų iškvietimui sukurkite pasirinkimų meniu.
 
-Dvejetainis paieškos medis.
+## Dvejetainis paieškos medis.
 Parašykite programą, kuri atlieka šias funkcijas:
 -Sukuria dvejetainį paieškos medį.
 -Atspausdina medžio elementus tiesioginiu būdu.
@@ -35,10 +35,11 @@ Parašykite programą, kuri atlieka šias funkcijas:
 elementas surastas.
 Funkcijų iškvietimui sukurkite pasirinkimų meniu.
 
-B+/B- tree
-Trie for autocomplete or other interesting application
+## B+/B- tree
+## Trie
+... for autocomplete or other interesting application
 
-Grafai
+## Grafai
 Parašykite programą, kuri:
 - rastų trumpiausius kelius tarp pasirinktos ir likusių įvestojo grafo viršūnių,
 - grąžintų trumpiausio kelio ilgį nuo pasirintos pradžios iki tikslo viršūnės,
