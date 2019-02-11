@@ -4,7 +4,6 @@ class GenericArray<E> {
 	public final int length;
 
 	public Array(int length) {
-		// Creates a new Object array of specified length
 		arr = new Object[length];
 		this.length = length;
 	}
