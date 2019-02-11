@@ -26,6 +26,33 @@ class GenericArray<E> {
 	}
 }
 
+class GenericArrayWReflection<E> {
+
+	private final E[] arr;
+	public final int length;
+
+	public Main(Class<E> type, int length) {
+		// Creates a new array with the specified type and length at runtime
+		this.arr = (E[]) java.lang.reflect.Array.newInstance(type, length);
+		this.length = length;
+	}
+
+	// Function to get element present at index i in the array
+	E get(int i) {
+		return arr[i];
+	}
+
+	// Function to set a value e at index i in the array
+	void set(int i, E e) {
+		arr[i] = e;
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(arr);
+	}
+}
+
 
 	// Program to create a generic array in Java
 	public static void main(String[] args)
