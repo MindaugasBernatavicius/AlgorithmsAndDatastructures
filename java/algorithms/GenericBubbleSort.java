@@ -33,7 +33,7 @@ class GBS {
     }
     
     // TODO: implement compare to
-    // private int compareTo(){
+    // private int compareTo(T t1, T t2){
         
     // }
 }
