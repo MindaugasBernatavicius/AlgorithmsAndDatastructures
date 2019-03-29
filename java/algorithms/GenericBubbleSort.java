@@ -31,4 +31,9 @@ class GBS {
             }
         }
     }
+    
+    // TODO: implement compare to
+    // private int compareTo(){
+        
+    // }
 }
