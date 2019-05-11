@@ -18,6 +18,14 @@ public class BubbleSort2D {
     }
     
     public static void bubbleSort2D(int arr[][]){
+        // 1st excercise: How to access the 2nd element in a nested array
+        // for(int i = 0; i < arr.length; i++){
+        //     // int[][] arr = {{1, 5}, {10, 2}, {58, 55}};
+        //     System.out.print(arr[i][1] + " ");
+        // }
+        // System.out.println();
+        
+        // 2nd excercise: 2D sort by the 2nd element in each array
         int n = arr.length;
         for (int i = 0; i < n-1; i++){
             for (int j = 0; j < n-i-1; j++){
