@@ -11,7 +11,7 @@ public class BubbleSort2D {
         // sort
         bubbleSort2D(arr);
         
-        // // after sorting
+        // after sorting
         for(int i = 0; i < arr.length; i++)
             System.out.print("{" + arr[i][0] + "," + arr[i][1] + "} ");
         System.out.println();
